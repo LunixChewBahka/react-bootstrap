@@ -17,28 +17,35 @@
 
     <script type="text/babel">
         var Jumbotron = React.createClass({
+            propTypes: {
+                title: React.PropTypes.string
+            },
+
             getDefaultProps: function(){
                 return {
                     title: "Hello World!",
-                    text: "This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.",
-                    link: "http://eduonix.com"
+                    text: "This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information."
                 }
             },
 
             render: function(){
                 return(
                     <div>
-						<div className="jumbotron">
+                        <div className="jumbotron">
                             <h1 className="display-3">{this.props.title}</h1>
                             <p className="lead">{this.props.text}</p>
                             <hr className="my-4" />
                             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                             <p className="lead">
-                                <a className="btn btn-primary btn-lg" href={this.props.link} role="button">Learn more</a>
+                                <a onClick={this.onClick.bind(this, 'Hello', 'Goodbye')} className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                         	</p>
                         </div>
                     </div>
                 )
+            },
+
+            onClick: function(greeting, greeting2){
+                alert(greeting2);
             }
         });
 
